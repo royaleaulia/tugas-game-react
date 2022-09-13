@@ -7,7 +7,7 @@ function App() {
 
   const [Result, setShowResults] = useState(false);
   const [score, Score] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [Pertanyaan, setPertanyaan] = useState(0);
 
   const pertanyaan = [
     {
@@ -63,8 +63,8 @@ function App() {
       Score(score + 1);
     }
 
-    if (currentQuestion + 1 < pertanyaan.length) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (Pertanyaan + 1 < pertanyaan.length) {
+      setPertanyaan(Pertanyaan+ 1);
     } else {
       setShowResults(true);
     }
@@ -74,10 +74,11 @@ function App() {
     /* Resets the game back to default */
     const restartGame = () => {
       Score(0);
-      setCurrentQuestion(0);
+      setPertanyaan(0);
       setShowResults(false);
     };
 
+    
   return (
     <div className="App">
       {/* 1 Header */}
@@ -96,11 +97,11 @@ function App() {
 
         /* 2. Daftar Pertanyaan */ 
         <div className="question-card">
-          <h2>Terdiri Dari {currentQuestion + 1}/{pertanyaan.length} Pertanyaan</h2>
-          <h3 className="question-text">{pertanyaan[currentQuestion].text}</h3>
+          <h2>Terdiri Dari {Pertanyaan + 1}/{pertanyaan.length} Pertanyaan</h2>
+          <h3 className="question-text">{pertanyaan[Pertanyaan].text}</h3>
 
           <ul>
-            {pertanyaan[currentQuestion].pilgan.map((pilihan) => {
+            {pertanyaan[Pertanyaan].pilgan.map((pilihan) => {
               return (
                 <li
                   key={pilihan.id}
